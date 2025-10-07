@@ -5,7 +5,7 @@ const MainNavbar = ({title="樂齡數位學習平台", logoPath="/", hamburgerBt
   return (
     <div className="navbar bg-base-100 shadow-sm fixed top-0 z-30 w-full">
       <div className={`flex-none ${hamburgerBtnShow ? "md:hidden" : "hidden"}`}>
-        <label className="btn btn-square btn-ghost drawer-button" for="my-course-drawer-2">
+        <label className="btn btn-square btn-ghost drawer-button" htmlFor="my-course-drawer-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

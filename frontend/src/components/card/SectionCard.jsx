@@ -21,7 +21,7 @@ const SectionCard = ({title, subtitle, summary, imgUrl="https://img.daisyui.com/
             if (path){
               navigate(path);
             }
-          }} className="btn btn-primary">開始學習</button>
+          }} className="btn btn-primary btn-lg">開始學習</button>
         </div>
       </div>
     </div>
