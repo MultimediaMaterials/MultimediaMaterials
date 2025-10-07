@@ -1,38 +1,21 @@
 const CourseMenu = () => {
   return (
     <>
-      <ul className="menu h-full bg-base-200 rounded-box w-56 md:border-r-gray-200 md:border-r-1">
+      <ul className="menu h-full bg-base-200 rounded-box w-42 md:border-r-gray-200 md:border-r-1 gap-4 pt-24 md:pt-4">
         <li>
-          <a>Item 1</a>
+          <button className="btn btn-xl">😁</button>
         </li>
         <li>
-          <details open>
-            <summary>Parent</summary>
-            <ul>
-              <li>
-                <a>Submenu 1</a>
-              </li>
-              <li>
-                <a>Submenu 2</a>
-              </li>
-              <li>
-                <details open>
-                  <summary>Parent</summary>
-                  <ul>
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-            </ul>
-          </details>
+          <button className="btn btn-xl">😀</button>
         </li>
         <li>
-          <a>Item 3</a>
+          <button className="btn btn-xl">😆</button>
+        </li>
+        <li>
+          <button className="btn btn-xl">😊</button>
+        </li>
+        <li>
+          <button className="btn btn-xl">😋</button>
         </li>
       </ul>
     </>
