@@ -1,6 +1,6 @@
 import CourseMenu from "./CourseMenu"
 
-const WithCourseSidebar = ({children}) => {
+const WithCourseSidebar = ({children, courseMenuData, menuActiveId}) => {
   return (
     <div className="drawer md:drawer-open min-h-screen">
       <input id="my-course-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -9,7 +9,7 @@ const WithCourseSidebar = ({children}) => {
       </div>
       <div className="drawer-side h-screen">
         <label htmlFor="my-course-drawer-2" className="drawer-overlay"></label>
-        <CourseMenu />
+        <CourseMenu courseMenuData={courseMenuData} menuActiveId={menuActiveId} />
       </div>
     </div>
   );

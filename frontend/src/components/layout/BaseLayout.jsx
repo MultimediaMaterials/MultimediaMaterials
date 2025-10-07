@@ -3,7 +3,7 @@ import ScrollToTop from "../utils/ScrollToTop"
 import Footer from "./footer"
 import MainNavbar from "./MainNavbar"
 
-const BaseLayout = ({children, hamburgerBtnShow=true}) => {
+const BaseLayout = ({children, hamburgerBtnShow=true, courseMenuData, menuActiveId}) => {
   const MainContent = () => (
     <>
       <ScrollToTop />
@@ -16,7 +16,7 @@ const BaseLayout = ({children, hamburgerBtnShow=true}) => {
   )
   return (
     <div>
-      {hamburgerBtnShow ? <WithCourseSidebar><MainContent /></WithCourseSidebar> : <MainContent />}
+      {hamburgerBtnShow ? <WithCourseSidebar courseMenuData={courseMenuData} menuActiveId={menuActiveId}><MainContent /></WithCourseSidebar> : <MainContent />}
     </div>
   )
 }

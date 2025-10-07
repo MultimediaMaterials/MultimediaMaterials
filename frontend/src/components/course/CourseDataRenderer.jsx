@@ -1,8 +1,10 @@
 import SectionCard from "../card/SectionCard";
 import Hero1 from "../hero/Hero1";
 import { Md } from "@m2d/react-markdown/client";
+import CourseSectionTab from "../layout/CourseSectionTab";
+import { subtabsData } from "../../data/subtabsData";
 
-const CourseDataRenderer = ({ course }) => {
+const CourseDataRenderer = ({ course, courseId }) => {
   if (!course || !course.type) {
     return (
       <div className="min-h-[450px] p-8">
@@ -25,14 +27,6 @@ const CourseDataRenderer = ({ course }) => {
   }
 
   switch (course.type) {
-    case 'video':
-      return (
-        <div>
-          <h2>{course.title}</h2>
-          <video src={course.videoUrl} controls width="600" />
-          <p>{course.description}</p>
-        </div>
-      );
     case 'article':
       return (
         <div>
@@ -47,6 +41,23 @@ const CourseDataRenderer = ({ course }) => {
                         <p className="max-w-xl text-2xl">{item.data}</p>
                       </div>
                     )
+
+                  case "video":
+                    return (
+                      <div className="w-full max-w-2xl mx-auto">
+                        <video src={`${item.data.videoUrl}#t=0.1`} controls className="w-full" preload="metadata" />
+                      </div>
+                    )
+
+                  case "tabs":
+                  {
+                    const tabsData = subtabsData[item.data];
+                    return (
+                      <div>
+                        <CourseSectionTab tabsData={tabsData} currentPageId={courseId} />
+                      </div>
+                    )
+                  }
                   
                   case "cards":
                     return (
