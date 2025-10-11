@@ -1,11 +1,8 @@
-import SectionCard from "../card/SectionCard";
 import Hero1 from "../hero/Hero1";
 import { Md } from "@m2d/react-markdown/client";
-import CourseSectionTab from "../layout/CourseSectionTab";
-import { subtabsData } from "../../data/subtabsData";
 
-const CourseDataRenderer = ({ course, courseId }) => {
-  if (!course || !course.type) {
+const CourseDataRenderer = ({ course }) => {
+  if (!course) {
     return (
       <div className="min-h-[450px] p-8">
         <div role="alert" className="alert">
@@ -26,72 +23,27 @@ const CourseDataRenderer = ({ course, courseId }) => {
     );
   }
 
-  switch (course.type) {
-    case 'article':
-      return (
-        <div>
-          <Hero1 title={course.title} description={<Md>{course.description}</Md>} />
-          {course.content && course.content.length ? (
-            <>
-              {course.content.map(item => {
-                switch (item.type) {
-                  case "p":
-                    return (
-                      <div key={item.id} className={`${item.height ? `h-[${item.height}px]` : ''} flex items-center justify-center px-4`}>
-                        <p className="max-w-xl text-2xl">{item.data}</p>
-                      </div>
-                    )
-
-                  case "video":
-                    return (
-                      <div className="w-full max-w-2xl mx-auto">
-                        <video src={`${item.data.videoUrl}#t=0.1`} controls className="w-full" preload="metadata" />
-                      </div>
-                    )
-
-                  case "tabs":
-                  {
-                    const tabsData = subtabsData[item.data];
-                    return (
-                      <div>
-                        <CourseSectionTab tabsData={tabsData} currentPageId={courseId} />
-                      </div>
-                    )
-                  }
-                  
-                  case "cards":
-                    return (
-                      <div key={item.id} className={`${item.height ? `h-[${item.height}px]` : ''} flex items-center justify-center py-8 gap-8 xl:gap-16 flex-wrap`}>
-                        {item.data && item.data.length && (
-                          item.data.map(cardData => 
-                            <SectionCard key={cardData.id} title={cardData.title} summary={cardData.summary} path={`/course?id=${cardData.id}`} />
-                          )
-                        )}
-                      </div>
-                    )
-                
-                  default:
-                    break;
-                }
-              })}
-            </>
-          ) : null}
-        </div>
-      );
-    case 'quiz':
-      return (
-        <div>
-          <h2>{course.title}</h2>
-          <ul>
-            {course.questions?.map((q, idx) => (
-              <li key={idx}>{q.question}</li>
+  // Render the course data coming from the backend
+  return (
+    <div>
+      <Hero1 title={course.title} description={<Md>{course.introduction}</Md>} />
+      <div className="prose lg:prose-xl mx-auto p-8">
+        {course.scenario && <Md>{course.scenario}</Md>}
+        {course.steps && course.steps.length > 0 && (
+          <div>
+            <h3>課程步驟</h3>
+            {course.steps.map(step => (
+              <div key={step.step_number} className="step">
+                <h4>步驟 {step.step_number}</h4>
+                <Md>{step.description}</Md>
+                {step.image && <img src={step.image} alt={`Step ${step.step_number}`} className="w-full max-w-2xl mx-auto" />}
+              </div>
             ))}
-          </ul>
-        </div>
-      );
-    default:
-      return <div>Unknown course type.</div>;
-  }
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default CourseDataRenderer;

@@ -1,10 +1,12 @@
-# courses/urls.py
+# backend/courses/urls.py
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CourseViewSet
+# 刪掉舊的 CourseViewSet，引入新的 TopicViewSet
+from .views import TopicViewSet 
 
 router = DefaultRouter()
-router.register(r'courses', CourseViewSet, basename='course')
+# 註冊新的 API 端點，例如叫 tutorials
+router.register(r'tutorials', TopicViewSet, basename='tutorial')
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -133,3 +133,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# --- Media Files Settings ---
+# 媒體檔案的根目錄 (儲存上傳檔案的地方)
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# 訪問媒體檔案的 URL
+MEDIA_URL = '/media/'
+
+

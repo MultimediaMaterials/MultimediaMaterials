@@ -1,0 +1,146 @@
+[
+  {
+    "model": "courses.topic",
+    "pk": 1,
+    "fields": {
+      "title": "📱 手機基礎操作：隨時都能用的生活小技能",
+      "icon": "📱",
+      "description": "歡迎來到您的手機操作工具箱！在這裡，我們教您最實用、最常用的手機基本功能。這些技巧就像您口袋裡的「萬用鑰匙」，能幫您連上網路省錢、和家人輕鬆傳照片、並讓手機更符合您的習慣。\n請點選您想學習的功能，每一步都有簡單的圖示和說明，讓您輕鬆掌握！",
+      "order": 1
+    }
+  },
+  {
+    "model": "courses.topic",
+    "pk": 2,
+    "fields": {
+      "title": "🛡️ 安全警報站 — 詐騙廣告識別（特別重要！）",
+      "icon": "🛡️",
+      "description": "現在詐騙集團常常透過手機傳訊息、打電話給您。他們的手法越來越高明，可能會假裝是銀行、電信公司，甚至假扮您的親人。這個單元教您如何看穿這些騙局，守護您的財產安全。",
+      "order": 99
+    }
+  },
+  {
+    "model": "courses.lesson",
+    "pk": 1,
+    "fields": {
+      "topic": 1,
+      "title": "連線 Wi-Fi (無線網路)",
+      "scenario": "省網路費！ 在家裡或咖啡廳上網，不用手機網路，可以省錢、速度又更快！",
+      "introduction": "Wi-Fi 無所不在，無論是餐廳、飯店或是學校。手機可以透過 WIFI 密碼連上他免費上網。如此一來，您看影片、傳照片時就不會扣到手機的網路費了！",
+      "order": 1
+    }
+  },
+  {
+    "model": "courses.lesson",
+    "pk": 2,
+    "fields": {
+      "topic": 1,
+      "title": "連線藍牙 (Bluetooth)",
+      "scenario": "無線連結！ 想用無線耳機聽音樂、或在車上播放手機裡的音樂，就靠它了。",
+      "introduction": "藍牙就像一條『看不見的短線』，能讓您的手機和耳機、音箱等設備隔空配對。配對成功後，您就能無線地使用這些設備。",
+      "order": 2
+    }
+  },
+  {
+    "model": "courses.lesson",
+    "pk": 3,
+    "fields": {
+      "topic": 1,
+      "title": "字體大小設定",
+      "scenario": "保護眼睛！ 看手機上的字像螞蟻一樣小？我們要教您把字「放大再放大」。",
+      "introduction": "這個功能讓您可以自己決定手機裡文字的大小。調大之後，訊息、網頁和 App 裡面的字都會變大，保護您的眼睛不疲勞。",
+      "order": 3
+    }
+  },
+  {
+    "model": "courses.lesson",
+    "pk": 4,
+    "fields": {
+      "topic": 2,
+      "title": "詐騙廣告識別",
+      "scenario": "守護財產！ 現在詐騙電話和簡訊很多，我們要教您如何分辨「假好康、假通知」，保護您的血汗錢。",
+      "introduction": "詐騙訊息和廣告通常會利用您貪小便宜或害怕被罰錢的心情。學會辨識它們，是保護自己的第一道防線。",
+      "order": 1
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 1,
+    "fields": {
+      "lesson": 1,
+      "step_number": 1,
+      "description": "找到並點選手機的 「設定」 App（圖示是一個齒輪）。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 2,
+    "fields": {
+      "lesson": 1,
+      "step_number": 2,
+      "description": "點選列表最上方的 「Wi-Fi」 選項。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 3,
+    "fields": {
+      "lesson": 1,
+      "step_number": 3,
+      "description": "確保 「Wi-Fi」 開關是綠色（已開啟）。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 4,
+    "fields": {
+      "lesson": 1,
+      "step_number": 4,
+      "description": "在下方的列表中，找到您的網路名稱，點選後輸入密碼。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 5,
+    "fields": {
+      "lesson": 1,
+      "step_number": 5,
+      "description": "密碼輸入正確後，Wi-Fi 圖示（像扇形波浪）會出現在螢幕最上方，表示連線成功，可以省網路費了！",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 6,
+    "fields": {
+      "lesson": 4,
+      "step_number": 1,
+      "description": "不點： 簡訊或 LINE 裡來路不明的連結，絕對不要點！真正的銀行或政府機關不會用簡訊要您輸入密碼。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 7,
+    "fields": {
+      "lesson": 4,
+      "step_number": 2,
+      "description": "不給： 絕對不要在任何網頁上輸入您的銀行帳號、密碼或身份證字號。",
+      "image": null
+    }
+  },
+  {
+    "model": "courses.step",
+    "pk": 8,
+    "fields": {
+      "lesson": 4,
+      "step_number": 3,
+      "description": "先查證： 收到親友「借錢」的訊息時，請務必打電話給他本人確認，不要直接匯款。",
+      "image": null
+    }
+  }
+]
