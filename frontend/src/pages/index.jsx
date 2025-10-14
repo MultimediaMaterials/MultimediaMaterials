@@ -27,11 +27,13 @@ const Index = () => {
               title="手機基礎操作"
               summary="隨時都能用的生活小技能"
               path="/course?id=1"
+              imgUrl="https://images.unsplash.com/photo-1592890288564-76628a30a657?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1920&h=1080"
             />
             <SectionCard
               title="ChatGPT"
               summary="智慧小幫手"
               path="/course?id=4"
+              imgUrl="https://images.unsplash.com/photo-1679083216051-aa510a1a2c0e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1920&h=1080"
             />
           </div>
         </div>
