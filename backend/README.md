@@ -17,15 +17,17 @@ pip install Pillow
 刪除舊遷移檔案：進入 backend/courses/migrations/ 資料夾，刪除裡面除了 __init__.py 之外的所有檔案。
 重新遷移：
 code
-Bash
+```Bash
 # 在 backend 虛擬環境中
 python manage.py makemigrations
 python manage.py migrate
+```
 這會建立一個全新的、空的資料庫，並且所有的資料表（包括 courses_topic）都已經正確建立。
 建立超級使用者：
 code
-Bash
+```Bash
 python manage.py createsuperuser
+```
 設定你的管理員帳號密碼。
 步驟三：載入範例資料
 這是最關鍵的一步。我們將使用 loaddata 命令來讀取 fixture 檔案並將資料寫入資料庫。
