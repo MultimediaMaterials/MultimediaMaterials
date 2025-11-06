@@ -2,6 +2,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import CoursesPage from './pages/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage';
+import EditorPage from './pages/EditorPage';
 import LessonLayout from './layouts/LessonLayout';
 
 // 導覽列元件
@@ -27,6 +28,7 @@ function App() {
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/course/:courseId" element={<CourseDetailPage />} />
           <Route path="/course/:courseId/:lessonId/:chapterId" element={<LessonLayout />} />
+          <Route path="/editor" element={<EditorPage />} />
         </Routes>
       </main>
     </div>
