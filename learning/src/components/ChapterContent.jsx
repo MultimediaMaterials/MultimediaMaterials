@@ -12,6 +12,7 @@ import YoutubeBlock from "./blocks/YoutubeBlock";
 import HtmlEmbedBlock from "./blocks/HtmlEmbedBlock";
 import OrderedListBlock from "./blocks/OrderedListBlock";
 import GoogleFormBlock from './blocks/GoogleFormBlock';
+import InteractiveSimulationBlock from './blocks/InteractiveSimulationBlock';
 
 // 建立一個元件對應表，方便查找
 const blockComponents = {
@@ -23,6 +24,7 @@ const blockComponents = {
   htmlEmbed: HtmlEmbedBlock,
   orderedList: OrderedListBlock,
   googleFormEmbed: GoogleFormBlock,
+  interactiveSimulation: InteractiveSimulationBlock,
 };
 
 // 主要的章節內容元件

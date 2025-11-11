@@ -1,3 +1,6 @@
+import { InteractiveSimulationExampleData } from "../components/blocks/InteractiveSimulationExample";
+import { OrderedListExampleData } from "../components/blocks/OrderedListExample"
+
 export const COURSES = {
   "basic-phone-skills": {
     "id": "basic-phone-skills",
@@ -44,7 +47,8 @@ export const COURSES = {
                     "密碼輸入正確後，Wi-Fi 圖示 (像扇形波浪) 會出現在螢幕最上方，表示連線成功，可以省網路費了！"
                   ]
                 }
-              }
+              },
+              InteractiveSimulationExampleData
             ]
           },
           {
@@ -71,19 +75,7 @@ export const COURSES = {
                   "text": "操作步驟 (iOS)"
                 }
               },
-              {
-                "type": "orderedList",
-                "data": {
-                  "items": [
-                    "找到並點選手機的「設定」App (齒輪圖案)。",
-                    "點選「藍牙」選項。",
-                    "確保「藍牙」開關是綠色 (已開啟)。",
-                    "開啟您想連接的設備 (如耳機)，讓它進入「配對模式」(通常會閃燈)。",
-                    "在手機的「其他裝置」列表中找到該設備名稱，點選它來完成連線。",
-                    "連線成功後，設備名稱下方會顯示「已連線」。"
-                  ]
-                }
-              }
+              OrderedListExampleData
             ]
           },
           {
