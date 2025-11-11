@@ -3,7 +3,7 @@ import { useState } from 'react';
 import BlockEditor from './BlockEditor';
 
 const availableBlocks = [
-  'heading', 'paragraph', 'alert', 'image', 'youtubeEmbed', 'orderedList', 'googleFormEmbed'
+  'heading', 'paragraph', 'alert', 'image', 'youtubeEmbed', 'orderedList', 'googleFormEmbed', 'interactiveSimulation'
 ];
 
 const ChapterEditor = ({ chapter, onContentChange }) => {
