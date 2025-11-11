@@ -1,0 +1,36 @@
+/* src/components/ImageSelectorTool.css */
+
+/* 圖片包裹層現在是共用的，但游標樣式只在編輯器需要 */
+.shared-image-wrapper {
+  cursor: crosshair;
+}
+
+/* 圖片現在是共用的，但 user-select 只在編輯器需要 */
+.shared-image-wrapper img {
+  user-select: none;
+}
+
+.selection-box {
+  position: absolute;
+  border: 2px dashed #007bff;
+  background-color: rgba(0, 123, 255, 0.3);
+  box-sizing: border-box;
+}
+
+.info-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  width: 100%; /* 讓資訊框也填滿容器 */
+}
+
+.info-box pre {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: monospace;
+  text-align: left;
+}
