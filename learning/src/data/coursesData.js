@@ -1,6 +1,3 @@
-import { InteractiveSimulationExampleData } from "../components/blocks/InteractiveSimulationExample";
-import { OrderedListExampleData } from "../components/blocks/OrderedListExample"
-
 export const COURSES = {
   "basic-phone-skills": {
     "id": "basic-phone-skills",
@@ -48,7 +45,54 @@ export const COURSES = {
                   ]
                 }
               },
-              InteractiveSimulationExampleData
+              {
+                "type": "interactiveSimulation",
+                "data": {
+                  "items": [
+                    {
+                      "imageSrc": "/img/line/line-1.png",
+                      "instruction": "首先，請「點擊」下方的對話框來開始輸入訊息。",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "top": "85%",
+                          "left": "5%",
+                          "width": "75%",
+                          "height": "10%"
+                        }
+                      }
+                    },
+                    {
+                      "imageSrc": "/img/line/line-1.png",
+                      "instruction": "這是一本相簿，請試著「向左滑動」照片來觀看下一張。",
+                      "action": {
+                        "type": "swipe",
+                        "direction": "left",
+                        "position": {
+                          "top": "20%",
+                          "left": "10%",
+                          "width": "80%",
+                          "height": "60%"
+                        }
+                      }
+                    },
+                    {
+                      "imageSrc": "/img/line/line-2.png",
+                      "instruction": "輸入完畢後，請「長按」右方的傳送按鈕來送出。",
+                      "action": {
+                        "type": "longPress",
+                        "duration": 1000,
+                        "position": {
+                          "top": "85%",
+                          "left": "82%",
+                          "width": "13%",
+                          "height": "10%"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
             ]
           },
           {
@@ -75,7 +119,19 @@ export const COURSES = {
                   "text": "操作步驟 (iOS)"
                 }
               },
-              OrderedListExampleData
+              {
+                "type": "orderedList",
+                "data": {
+                  "items": [
+                    "找到並點選手機的「設定」App (齒輪圖案)。",
+                    "點選「藍牙」選項。",
+                    "確保「藍牙」開關是綠色 (已開啟)。",
+                    "開啟您想連接的設備 (如耳機)，讓它進入「配對模式」(通常會閃燈)。",
+                    "在手機的「其他裝置」列表中找到該設備名稱，點選它來完成連線。",
+                    "連線成功後，設備名稱下方會顯示「已連線」。"
+                  ]
+                }
+              }
             ]
           },
           {
@@ -231,6 +287,65 @@ export const COURSES = {
                     "點選「加入新的背景圖片」。",
                     "點選上方的「照片」圖示，然後在相簿裡選一張您最喜歡的照片。",
                     "選好後，點選右上角的「加入」，然後選「設為背景圖片組合」即可。"
+                  ]
+                }
+              },
+              {
+                "type": "interactiveSimulation",
+                "data": {
+                  "items": [
+                    {
+                      "instruction": "點選「背景圖片」選項。",
+                      "imageSrc": "/img/basic/change-background/IMG_0324.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "6.02%",
+                          "top": "69.04%",
+                          "width": "87.43%",
+                          "height": "4.08%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "點選「加入新的背景圖片」。",
+                      "imageSrc": "/img/basic/change-background/IMG_0325.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "30.21%",
+                          "top": "61.7%",
+                          "width": "39.4%",
+                          "height": "3.42%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "點選上方的「照片」圖示，然後在相簿裡選一張您最喜歡的照片。",
+                      "imageSrc": "/img/basic/change-background/IMG_0326.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "4.95%",
+                          "top": "13.53%",
+                          "width": "17.67%",
+                          "height": "8.31%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "在相簿裡選一張您最喜歡的照片。",
+                      "imageSrc": "/img/basic/change-background/IMG_0327.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "1.95%",
+                          "top": "24.51%",
+                          "width": "96.28%",
+                          "height": "74.51%"
+                        }
+                      }
+                    }
                   ]
                 }
               }
