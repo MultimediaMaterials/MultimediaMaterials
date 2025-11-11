@@ -60,14 +60,8 @@ const BlockEditor = ({ index, block, onChange, onDelete, onMove }) => {
           handleChange('items', newItems);
         };
 
-        const handlePositionChange = (itemIndex, field, value) => {
-          const newItems = [...data.items];
-          newItems[itemIndex].action.position = { ...newItems[itemIndex].action.position, [field]: value };
-          handleChange('items', newItems);
-        };
-
         const handleAddItem = () => {
-          const newItems = [...data.items, { instruction: 'New Step', imageSrc: '', action: { type: 'click', position: { top: '0', left: '0', width: '50px', height: '50px' } } }];
+          const newItems = data.items ? [...data.items, { instruction: 'New Step', imageSrc: '', action: { type: 'click', position: { top: '0%', left: '0%', width: '50%', height: '50%' } } }] : [{ instruction: 'New Step', imageSrc: '', action: { type: 'click', position: { top: '0%', left: '0%', width: '50%', height: '50%' } } }];
           handleChange('items', newItems);
         };
 
