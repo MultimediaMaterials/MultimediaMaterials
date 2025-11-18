@@ -50,43 +50,70 @@ export const COURSES = {
                 "data": {
                   "items": [
                     {
-                      "imageSrc": "/img/line/line-1.png",
-                      "instruction": "首先，請「點擊」下方的對話框來開始輸入訊息。",
+                      "imageSrc": "/img/basic/wifi/IMG_0309.png",
+                      "instruction": "請長按連線方塊",
+                      "action": {
+                        "type": "longPress",
+                        "position": {
+                          "left": "9.88%",
+                          "top": "24.35%",
+                          "width": "38.1%",
+                          "height": "16.94%"
+                        },
+                        "duration": 800
+                      }
+                    },
+                    {
+                      "imageSrc": "/img/basic/wifi/IMG_0310.png",
+                      "instruction": "點選Wifi",
+                      "action": {
+                        "type": "click",
+                        "direction": "left",
+                        "position": {
+                          "left": "12.87%",
+                          "top": "33.31%",
+                          "width": "33.51%",
+                          "height": "5.54%"
+                        }
+                      }
+                    },
+                    {
+                      "imageSrc": "/img/basic/wifi/IMG_0311.png",
+                      "instruction": "選擇要連線的Wifi名稱",
+                      "action": {
+                        "type": "click",
+                        "duration": 1000,
+                        "position": {
+                          "left": "9.35%",
+                          "top": "35.75%",
+                          "width": "81.48%",
+                          "height": "5.7%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "連線另一個Wifi看看",
+                      "imageSrc": "/img/basic/wifi/IMG_0312.png",
                       "action": {
                         "type": "click",
                         "position": {
-                          "top": "85%",
-                          "left": "5%",
-                          "width": "75%",
-                          "height": "10%"
+                          "left": "10.05%",
+                          "top": "41.86%",
+                          "width": "80.78%",
+                          "height": "5.46%"
                         }
                       }
                     },
                     {
-                      "imageSrc": "/img/line/line-1.png",
-                      "instruction": "這是一本相簿，請試著「向左滑動」照片來觀看下一張。",
+                      "instruction": "這個Wifi需要輸入密碼，請點擊輸入框",
+                      "imageSrc": "/img/basic/wifi/IMG_0313.png",
                       "action": {
-                        "type": "swipe",
-                        "direction": "left",
+                        "type": "click",
                         "position": {
-                          "top": "20%",
-                          "left": "10%",
-                          "width": "80%",
-                          "height": "60%"
-                        }
-                      }
-                    },
-                    {
-                      "imageSrc": "/img/line/line-2.png",
-                      "instruction": "輸入完畢後，請「長按」右方的傳送按鈕來送出。",
-                      "action": {
-                        "type": "longPress",
-                        "duration": 1000,
-                        "position": {
-                          "top": "85%",
-                          "left": "82%",
-                          "width": "13%",
-                          "height": "10%"
+                          "left": "22.05%",
+                          "top": "21.01%",
+                          "width": "72.31%",
+                          "height": "4.15%"
                         }
                       }
                     }
@@ -131,6 +158,52 @@ export const COURSES = {
                     "連線成功後，設備名稱下方會顯示「已連線」。"
                   ]
                 }
+              },
+              {
+                "type": "interactiveSimulation",
+                "data": {
+                  "items": [
+                    {
+                      "instruction": "進入藍牙設備清單",
+                      "imageSrc": "/img/basic/bluetooth/IMG_0310.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "52.56%",
+                          "top": "52.52%",
+                          "width": "35.8%",
+                          "height": "5.21%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "點擊進入藍牙設定",
+                      "imageSrc": "/img/basic/bluetooth/IMG_0315.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "12.87%",
+                          "top": "69.63%",
+                          "width": "73.9%",
+                          "height": "4.97%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "開啟或關閉藍牙",
+                      "imageSrc": "/img/basic/bluetooth/IMG_0316.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "77.78%",
+                          "top": "34.12%",
+                          "width": "13.76%",
+                          "height": "4.48%"
+                        }
+                      }
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -169,6 +242,52 @@ export const COURSES = {
                     "等待對方手機彈出「接受」提示，請對方點擊後即可快速完成傳輸。"
                   ]
                 }
+              },
+              {
+                "type": "interactiveSimulation",
+                "data": {
+                  "items": [
+                    {
+                      "instruction": "點擊分享按鈕",
+                      "imageSrc": "/img/basic/airdrop/IMG_0333.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "0.88%",
+                          "top": "90.64%",
+                          "width": "23.28%",
+                          "height": "7.33%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "點選 Airdrop 圖示",
+                      "imageSrc": "/img/basic/airdrop/IMG_0334.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "0.43%",
+                          "top": "71.22%",
+                          "width": "23.4%",
+                          "height": "11.22%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "完成傳送後關閉功能",
+                      "imageSrc": "/img/basic/airdrop/IMG_0335.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "82.72%",
+                          "top": "17.83%",
+                          "width": "16.05%",
+                          "height": "5.46%"
+                        }
+                      }
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -205,6 +324,39 @@ export const COURSES = {
                     "開啟「允許其他人加入」的開關 (變為綠色)。",
                     "記住畫面上顯示的「Wi-Fi 密碼」。",
                     "讓想連線的裝置去他們的 Wi-Fi 列表中，找到您的手機名稱，輸入您剛才記下的密碼即可連線。"
+                  ]
+                }
+              },
+              {
+                "type": "interactiveSimulation",
+                "data": {
+                  "items": [
+                    {
+                      "instruction": "進入熱點設定",
+                      "imageSrc": "/img/basic/hotspot/IMG_0318.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "4.59%",
+                          "top": "30.37%",
+                          "width": "90.65%",
+                          "height": "4.4%"
+                        }
+                      }
+                    },
+                    {
+                      "instruction": "為個人熱點設定密碼",
+                      "imageSrc": "/img/basic/hotspot/IMG_0319.png",
+                      "action": {
+                        "type": "click",
+                        "position": {
+                          "left": "5.11%",
+                          "top": "43.08%",
+                          "width": "89.95%",
+                          "height": "5.05%"
+                        }
+                      }
+                    }
                   ]
                 }
               }
