@@ -1,5 +1,5 @@
 const YoutubeBlock = ({ videoId, title }) => (
-  <div className="my-8 aspect-w-16 aspect-h-9">
+  <div className="my-8 aspect-video">
     <iframe
       src={`https://www.youtube.com/embed/${videoId}`}
       title={title || "YouTube video player"}

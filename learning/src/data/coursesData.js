@@ -966,6 +966,25 @@ export const COURSES = {
         "title": "五大核心功能",
         "chapters": [
           {
+            "id": "C1-0",
+            "title": "前言",
+            "content": [
+              {
+                "type": "alert",
+                "data": {
+                  "style": "success",
+                  "text": "「想知道『高血壓要避免哪些食物』，或『如何搭車去台北車站』，可以直接問 ChatGPT，就像和人聊天一樣。」"
+                }
+              },
+              {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "nj9I1XoEO10"
+                }
+              }
+            ]
+          },
+          {
             "id": "C1-1",
             "title": "主題一：快速查詢 — 問答功能",
             "content": [
@@ -974,6 +993,12 @@ export const COURSES = {
                 "data": {
                   "style": "info",
                   "text": "「想知道『高血壓要避免哪些食物』，或『如何搭車去台北車站』，可以直接問 ChatGPT，就像和人聊天一樣。」"
+                }
+              },
+              {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "wtETIEe89Js"
                 }
               },
               {
@@ -1013,6 +1038,12 @@ export const COURSES = {
                 }
               },
               {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "pcb56W41wNY"
+                }
+              },
+              {
                 "type": "paragraph",
                 "data": {
                   "text": "ChatGPT 可以幫您修改、潤飾或重組文字，讓內容更清楚、簡短、或更有感情。"
@@ -1045,6 +1076,12 @@ export const COURSES = {
                 "data": {
                   "style": "info",
                   "text": "「想要有人聊天，或學點英文、聽故事，讓生活更有趣。」"
+                }
+              },
+              {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "rWIk9kMNT4Y"
                 }
               },
               {
@@ -1083,6 +1120,12 @@ export const COURSES = {
                 }
               },
               {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "3d5Zq4latgU"
+                }
+              },
+              {
                 "type": "paragraph",
                 "data": {
                   "text": "ChatGPT 可以翻譯句子，並依需求調整難易度，也能生成例句幫助學習。"
@@ -1116,6 +1159,12 @@ export const COURSES = {
                 "data": {
                   "style": "info",
                   "text": "「看到一篇很長的健康新聞，資訊太多，需要簡單重點，才方便理解與應用。」"
+                }
+              },
+              {
+                "type": "youtubeEmbed",
+                "data": {
+                  "videoId": "0_vg68bK9QI"
                 }
               },
               {
@@ -1172,7 +1221,7 @@ export const COURSES = {
               {
                 "type": "googleFormEmbed",
                 "data": {
-                  "formUrl": "https://google.com"
+                  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScjanx0v0A7Q5ZC83mk4UPj0nvzwa4FPAxPxdOkjHHq4eUMQA/viewform?embedded=true"
                 }
               }
             ]
@@ -1197,7 +1246,7 @@ export const COURSES = {
               {
                 "type": "googleFormEmbed",
                 "data": {
-                  "formUrl": "https://google.com"
+                  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScv3XqMVTIb_o568qtHDNhsK8_r-JXDqKDhDoUz-ueshD2kcw/viewform?embedded=true"
                 }
               }
             ]
