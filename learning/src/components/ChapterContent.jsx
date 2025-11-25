@@ -87,10 +87,10 @@ const ChapterContent = ({ courseId, lessonId, chapterId }) => {
         {chapter.content.map((block, index) => {
           const Component = blockComponents[block.type];
           if (!Component) {
-            return <div key={index}>錯誤：未知的區塊類型 "{block.type}"</div>;
+            return <div  key={`${chapterId}-${index}`}>錯誤：未知的區塊類型 "{block.type}"</div>;
           }
           // 將 block.data 的所有屬性作為 props 傳給對應的元件
-          return <Component key={index} {...block.data} />;
+          return <Component  key={`${chapterId}-${index}`} {...block.data} />;
         })}
       </div>
 
