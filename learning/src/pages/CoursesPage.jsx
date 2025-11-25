@@ -9,10 +9,10 @@ const coursesArray = Object.values(COURSES);
 const CourseSelectionCard = ({ course }) => (
   <Link
     to={`/course/${course.id}`}
-    className="bg-white rounded-2xl shadow-lg overflow-hidden block border-4 border-transparent hover:border-blue-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+    className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border-4 border-transparent hover:border-blue-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
   >
-    <div className="p-8">
-      <img src={course.imageUrl} alt={course.title} className="w-24 h-24 mx-auto mb-6 object-contain" />
+    <img src={course.imageUrl} alt={course.title} className="w-full h-48 object-cover" />
+    <div className="p-8 grow">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">{course.title}</h2>
       <p className="text-lg text-gray-600 text-center leading-relaxed">{course.description}</p>
     </div>
