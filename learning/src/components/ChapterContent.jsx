@@ -64,9 +64,12 @@ const ChapterContent = ({ courseId, lessonId, chapterId }) => {
         );
       case "course_complete":
         return (
-          <div className="bg-emerald-500 text-white text-xl font-bold py-4 px-8 rounded-lg">
+          <Link
+          to="/courses"
+          className="bg-emerald-500 text-white text-xl font-bold py-4 px-8 rounded-lg hover:bg-emerald-600 transition-colors"
+          >
             恭喜！您已完成所有課程！
-          </div>
+          </Link>
         );
       default:
         return <div />;
