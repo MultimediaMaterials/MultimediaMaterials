@@ -4,18 +4,46 @@ import { FaCheckCircle, FaRedo } from 'react-icons/fa';
 
 const InteractiveSimulationBlock = ({ items }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   const longPressTimer = useRef();
-  const swipeStartRef = useRef(null);
+  const swipeStartRef = useRef(null); // 記錄按下的位置
 
   const isCompleted = currentStepIndex >= items.length;
+
+  if (isCompleted) {
+    return (
+      <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-8 my-8 rounded-lg flex flex-col items-center justify-center text-center shadow-lg">
+        <FaCheckCircle className="text-5xl mb-4" />
+        <h3 className="text-2xl font-bold mb-4">恭喜您，操作練習完成！</h3>
+        <p className="text-lg mb-6">您已成功學習此操作流程。</p>
+        <button
+          onClick={() => setCurrentStepIndex(0)}
+          className="bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center gap-2 hover:bg-green-700 transition-colors"
+        >
+          <FaRedo />
+          再練習一次
+        </button>
+      </div>
+    );
+  }
+
   const currentStep = items[currentStepIndex];
 
   const handleActionSuccess = () => {
-    setCurrentStepIndex(prevIndex => prevIndex + 1);
-  };
+    if (isTransitioning) return;
 
-  const handleReset = () => {
-    setCurrentStepIndex(0);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      // --- ✨ 關鍵修正 2：切換頁面時，徹底清除「按下」的狀態 ---
+      // 這確保了上一頁的「長按不放」，不會被帶到這一頁變成「點擊」
+      swipeStartRef.current = null;
+      clearTimeout(longPressTimer.current);
+
+      setCurrentStepIndex(prevIndex => prevIndex + 1);
+      setIsTransitioning(false);
+    }, 500);
   };
 
   const getCoordinates = (event) => {
@@ -26,84 +54,62 @@ const InteractiveSimulationBlock = ({ items }) => {
   };
 
   const handleInteractionStart = (event) => {
+    event.preventDefault();
+    if (isTransitioning) return;
+
     const { type, duration } = currentStep.action;
 
-    // ✨ 1. 關鍵修改：只在滑動模式下阻止預設行為
-    // 這會阻止圖片拖放和頁面滾動的開始
-    if (type === 'swipe') {
-      event.preventDefault();
-      swipeStartRef.current = getCoordinates(event);
-    }
+    swipeStartRef.current = getCoordinates(event);
 
     if (type === 'longPress') {
       longPressTimer.current = setTimeout(handleActionSuccess, duration || 1000);
     }
   };
 
-  // ✨ 2. 新增函式：在滑動過程中持續阻止預設行為
   const handleInteractionMove = (event) => {
-    // 當使用者手指/滑鼠在螢幕上移動時，持續阻止瀏覽器滾動頁面
-    if (currentStep.action.type === 'swipe' && swipeStartRef.current) {
-        event.preventDefault();
-    }
+    event.preventDefault();
   };
 
   const handleInteractionEnd = (event) => {
+    event.preventDefault();
+    if (isTransitioning) return;
+
     const { type, direction } = currentStep.action;
     clearTimeout(longPressTimer.current);
 
-    if (type === 'swipe' && swipeStartRef.current) {
-      const startPos = swipeStartRef.current;
-      const endPos = event.changedTouches ? { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY } : { x: event.clientX, y: event.clientY };
+    // --- 安全檢查 ---
+    // 如果 swipeStartRef.current 是 null (代表這是在上一頁按下的，或者被重置過)
+    // 我們就直接忽略這次的「放開」事件
+    if (!swipeStartRef.current) return;
 
-      const deltaX = endPos.x - startPos.x;
-      const deltaY = endPos.y - startPos.y;
+    const startPos = swipeStartRef.current;
+    const endPos = event.changedTouches
+      ? { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY }
+      : { x: event.clientX, y: event.clientY };
 
-      const swipeThreshold = 50;
+    const deltaX = endPos.x - startPos.x;
+    const deltaY = endPos.y - startPos.y;
+    const moveDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
+    if (type === 'click' && moveDistance < 10) {
+      handleActionSuccess();
+    }
+    else if (type === 'swipe' && moveDistance > 50) {
       let detectedDirection = null;
-
       if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        if (deltaX > swipeThreshold) detectedDirection = 'right';
-        else if (deltaX < -swipeThreshold) detectedDirection = 'left';
+        detectedDirection = deltaX > 0 ? 'right' : 'left';
       } else {
-        if (deltaY > swipeThreshold) detectedDirection = 'down';
-        else if (deltaY < -swipeThreshold) detectedDirection = 'up';
+        detectedDirection = deltaY > 0 ? 'down' : 'up';
       }
 
       if (detectedDirection === direction) {
         handleActionSuccess();
       }
-
-      swipeStartRef.current = null;
     }
+
+    // 互動結束，重置起始點
+    swipeStartRef.current = null;
   };
-
-  const handleClick = (event) => {
-    // 阻止點擊事件冒泡，以防觸發其他東西
-    event.preventDefault();
-    if (currentStep.action.type === 'click') {
-      handleActionSuccess();
-    }
-  };
-
-  if (isCompleted) {
-      // 結束畫面
-      return (
-        <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-8 my-8 rounded-lg flex flex-col items-center justify-center text-center shadow-lg">
-          <FaCheckCircle className="text-5xl mb-4" />
-          <h3 className="text-2xl font-bold mb-4">恭喜您，操作練習完成！</h3>
-          <p className="text-lg mb-6">您已成功學習此操作流程。</p>
-          <button
-            onClick={handleReset}
-            className="bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center gap-2 hover:bg-green-700 transition-colors"
-          >
-            <FaRedo />
-            再練習一次
-          </button>
-        </div>
-      );
-    }
 
   return (
     <div className="my-8 p-4 bg-zinc-800 rounded-xl shadow-2xl">
@@ -112,15 +118,25 @@ const InteractiveSimulationBlock = ({ items }) => {
       </div>
 
       <div className="relative w-full overflow-hidden">
-        {/* ✨ 3. 關鍵修改：將圖片設定為不可拖動 */}
         <img
             src={currentStep.imageSrc}
             alt="軟體操作介面"
-            className="w-full h-auto block"
+            className="w-full h-auto block select-none"
             draggable="false"
         />
+
+        {/* 互動區域 */}
         <div
-          className="absolute border-4 border-dashed border-blue-400 rounded-lg cursor-pointer touch-none"
+          className={`absolute border-4 rounded-lg cursor-pointer touch-none transition-all duration-300
+            ${isTransitioning
+              // 成功時：顯示綠色背景與框線 (使用者需要反饋知道成功了)
+              ? ' bg-opacity-10 border-green-400 scale-105 shadow-[0_0_20px_rgba(74,222,128,0.8)]'
+
+              // --- ✨ 關鍵修正 1：平常狀態 ---
+              // 移除 bg-blue-500，改為 bg-transparent (透明)
+              // 稍微加粗邊框或保持虛線，讓使用者知道哪裡可以點，但不遮擋內容
+              : 'bg-transparent border-dashed border-blue-400 hover:border-blue-300'
+            }`}
           style={{
             top: currentStep.action.position.top,
             left: currentStep.action.position.left,
@@ -128,16 +144,13 @@ const InteractiveSimulationBlock = ({ items }) => {
             height: currentStep.action.position.height,
           }}
 
-          // ✨ 4. 關鍵修改：綁定所有必要的事件處理器
-          onClick={handleClick}
           onMouseDown={handleInteractionStart}
           onMouseUp={handleInteractionEnd}
           onMouseMove={handleInteractionMove}
           onTouchStart={handleInteractionStart}
           onTouchEnd={handleInteractionEnd}
           onTouchMove={handleInteractionMove}
-          onMouseLeave={handleInteractionEnd} // 當滑鼠移出區域時，也視為互動結束
-          // 防止瀏覽器在長按時跳出右鍵選單
+          onMouseLeave={handleInteractionEnd}
           onContextMenu={(e) => e.preventDefault()}
         ></div>
       </div>
