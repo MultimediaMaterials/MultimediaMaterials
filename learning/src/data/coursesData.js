@@ -3,7 +3,7 @@ export const COURSES = {
     "id": "basic-phone-skills",
     "title": "手機基礎功能小學堂",
     "description": "歡迎來到您的手機操作工具箱！我們將教您最實用、最常用的手機基本功能，幫您連上網路、輕鬆傳照片，並讓手機更符合您的習慣。",
-    "imageUrl": "/images/phone-skills-logo.png",
+    "imageUrl": "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg",
     "lessons": [
       {
         "id": "L1",
@@ -829,7 +829,7 @@ export const COURSES = {
     "id": "google-maps",
     "title": "Google Map 完全指南",
     "description": "學習使用 Google 地圖，從地點查詢到路線規劃，讓您出門不再迷路，輕鬆掌握交通方式。",
-    "imageUrl": "/images/google-maps-logo.png",
+    "imageUrl": "https://images.pexels.com/photos/4542998/pexels-photo-4542998.jpeg",
     "lessons": [
       {
         "id": "L1",
@@ -959,7 +959,7 @@ export const COURSES = {
     "id": "chatgpt",
     "title": "ChatGPT 基礎功能小學堂",
     "description": "學習如何使用 AI 幫手 ChatGPT，讓生活更便利。包含問答、寫作、翻譯等實用功能。",
-    "imageUrl": "/images/chatgpt-logo.png",
+    "imageUrl": "https://images.pexels.com/photos/15940006/pexels-photo-15940006.jpeg",
     "lessons": [
       {
         "id": "L1",
@@ -1152,7 +1152,7 @@ export const COURSES = {
     "id": "tests",
     "title": "前後測",
     "description": "多媒體教材設計與製作",
-    "imageUrl": "/images/chatgpt-logo.png",
+    "imageUrl": "https://images.pexels.com/photos/5428832/pexels-photo-5428832.jpeg",
     "lessons": [
       {
         "id": "L1",
