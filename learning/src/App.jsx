@@ -10,7 +10,7 @@ const Navbar = () => (
   <header className="bg-white shadow-md sticky top-0 z-10">
     <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
       <Link to="/" className="text-3xl font-bold text-blue-900">
-        樂齡數位學堂
+        樂齡數位學習平台
       </Link>
       <Link to="/courses" className="text-xl text-zinc-800 hover:text-blue-900">課程列表</Link>
     </nav>

@@ -25,7 +25,7 @@ const CourseSelectionCard = ({ course }) => (
 const CoursesPage = () => {
   return (
     <div className="container mx-auto p-6 md:p-12">
-      <h1 className="text-5xl font-bold text-center mb-12 text-gray-800">樂齡數位力學堂</h1>
+      <h1 className="text-5xl font-bold text-center mb-12 text-gray-800">樂齡數位學習平台</h1>
       <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
         請選擇您今天想學習的數位工具，我們會一步一步帶您認識它！
       </p>

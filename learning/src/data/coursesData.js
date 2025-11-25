@@ -1,4 +1,37 @@
 export const COURSES = {
+  "pretest": {
+    "id": "pretest",
+    "title": "前測",
+    "description": "樂齡數位學習平台 前測問卷",
+    "imageUrl": "https://images.pexels.com/photos/5428832/pexels-photo-5428832.jpeg",
+    "lessons": [
+      {
+        "id": "L1",
+        "title": "前測",
+        "chapters": [
+          {
+            "id": "C1-1",
+            "title": "前測問卷",
+            "content": [
+              {
+                "type": "alert",
+                "data": {
+                  "style": "info",
+                  "text": "請完成前測"
+                }
+              },
+              {
+                "type": "googleFormEmbed",
+                "data": {
+                  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScjanx0v0A7Q5ZC83mk4UPj0nvzwa4FPAxPxdOkjHHq4eUMQA/viewform?embedded=true"
+                }
+              }
+            ]
+          }
+        ]
+      },
+    ]
+  },
   "basic-phone-skills": {
     "id": "basic-phone-skills",
     "title": "手機基礎功能小學堂",
@@ -1197,39 +1230,14 @@ export const COURSES = {
       }
     ]
   },
-  "tests": {
-    "id": "tests",
-    "title": "前後測",
-    "description": "多媒體教材設計與製作",
+  "posttest": {
+    "id": "posttest",
+    "title": "後測",
+    "description": "樂齡數位學習平台 後測",
     "imageUrl": "https://images.pexels.com/photos/5428832/pexels-photo-5428832.jpeg",
     "lessons": [
       {
         "id": "L1",
-        "title": "前測",
-        "chapters": [
-          {
-            "id": "C1-1",
-            "title": "前測問卷",
-            "content": [
-              {
-                "type": "alert",
-                "data": {
-                  "style": "info",
-                  "text": "請完成前測"
-                }
-              },
-              {
-                "type": "googleFormEmbed",
-                "data": {
-                  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScjanx0v0A7Q5ZC83mk4UPj0nvzwa4FPAxPxdOkjHHq4eUMQA/viewform?embedded=true"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "L2",
         "title": "後測",
         "chapters": [
           {
