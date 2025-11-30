@@ -1,5 +1,5 @@
 // src/components/ChapterContent.jsx
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { COURSES } from "../data/coursesData";
 import { getChapterNavigation } from "../utils/navigation";
 
@@ -13,6 +13,7 @@ import HtmlEmbedBlock from "./blocks/HtmlEmbedBlock";
 import OrderedListBlock from "./blocks/OrderedListBlock";
 import GoogleFormBlock from './blocks/GoogleFormBlock';
 import InteractiveSimulationBlock from './blocks/InteractiveSimulationBlock';
+import { useEffect } from "react";
 
 // 建立一個元件對應表，方便查找
 const blockComponents = {
@@ -32,6 +33,16 @@ const ChapterContent = ({ courseId, lessonId, chapterId }) => {
   const course = COURSES[courseId];
   const lesson = course.lessons.find((l) => l.id === lessonId);
   const chapter = lesson?.chapters.find((c) => c.id === chapterId);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
 
   if (!chapter) return <div>找不到章節內容。</div>;
 
