@@ -1,5 +1,5 @@
 // src/components/ChapterContent.jsx
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { COURSES } from "../data/coursesData";
 import { getChapterNavigation } from "../utils/navigation";
 
@@ -13,6 +13,7 @@ import HtmlEmbedBlock from "./blocks/HtmlEmbedBlock";
 import OrderedListBlock from "./blocks/OrderedListBlock";
 import GoogleFormBlock from './blocks/GoogleFormBlock';
 import InteractiveSimulationBlock from './blocks/InteractiveSimulationBlock';
+import { useEffect, useRef } from "react";
 
 // 建立一個元件對應表，方便查找
 const blockComponents = {
@@ -29,9 +30,16 @@ const blockComponents = {
 
 // 主要的章節內容元件
 const ChapterContent = ({ courseId, lessonId, chapterId }) => {
+  const contentRef = useRef(null);
   const course = COURSES[courseId];
   const lesson = course.lessons.find((l) => l.id === lessonId);
   const chapter = lesson?.chapters.find((c) => c.id === chapterId);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    contentRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [pathname]);
 
   if (!chapter) return <div>找不到章節內容。</div>;
 
@@ -77,7 +85,11 @@ const ChapterContent = ({ courseId, lessonId, chapterId }) => {
   };
 
   return (
-    <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
+    <div
+      ref={contentRef}
+      className="bg-white p-8 md:p-12 rounded-2xl shadow-xl"
+      style={{ scrollMarginTop: "80px" }} // 為導覽列添加偏移
+    >
       <h1 className="text-4xl font-bold text-gray-800 mb-8 border-b pb-4">
         {chapter.title}
       </h1>
